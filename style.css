@@ -1,53 +1,11 @@
-body {
-  margin: 32px;
-}
-
-.grid {
-  width: 100%;
+.progress {
+  background: white;
+  width: 0%;
   height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 30px;
-  row-gap: 30px;
+  transition: 0.25s;
 }
 
-.audio-container {
-  cursor: pointer;
-
-  .audio-cover {
-    height: 33vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat:no-repeat;
-  }
-  
-  .audio-cover-1 {
-    background-image: url(https://franklinpetfood.com/cdn/shop/files/600X600_BENGAL_HEADER.jpg?v=1702485452&width=642);
-  }
-  
-  .audio-cover-2 {
-    background-image: url(https://cdn.futura-sciences.com/buildsv6/images/wide1920/0/0/d/00dd1479a5_108485_chat-domestique.jpg);
-  }
-  
-  .audio-cover-3 {
-    background-image: url(https://www.whiskas.fr/sites/g/files/fnmzdf6951/files/2022-09/mon-chat-est-tres-craintif-comment-y-remedier_5.jpg);
-  }
-}
-
-.timeline {
-  height: 20px;
-  width: 100%;
-  background: #999;
-
-  .progress {
-    background: coral;
-    width: 0%;
-    height: 100%;
-    transition: 0.25s;
-  }
-}
-
-.audio-player {
+/* .audio-player {
   width: 100%;
   height: 70px;
   background: #444;
@@ -107,4 +65,4 @@ body {
       }
     }
   }
-}
+} */
