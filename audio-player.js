@@ -21,14 +21,17 @@ for (const [index, audioContainer] of Array.from(audioContainers).entries()) {
 
   // Reset progress bar and play button when audio ends
   audio.addEventListener("ended", () => {
+    console.log('audio end');
     const progressBar = audioContainer.querySelector("#progress");
     progressBar.style.width = "0%";
+    audio.currentTime = 0; // Add this line
     audioContainer.querySelector("#time #current").textContent = "0:00";
     const playBtn = audioContainer.querySelector("#toggle-play");
     playBtn.querySelector("#play-controls").classList.remove("stop");
     playBtn.querySelector("#play-controls").classList.add("play");
     currentlyPlayingIndex = -1;
   }, false);
+  
 
   //click on timeline to skip around
   const timeline = audioContainer.querySelector("#timeline");
@@ -41,13 +44,15 @@ for (const [index, audioContainer] of Array.from(audioContainers).entries()) {
     }
   }, false);
 
-  //check audio percentage and update time accordingly
+  // check audio percentage and update time accordingly
   setInterval(() => {
-    const progressBar = audioContainer.querySelector("#progress");
-    progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
-    audioContainer.querySelector("#time #current").textContent = getTimeCodeFromNum(
-      audio.currentTime
-    );
+    if (!audio.paused && !audio.ended) {
+      const progressBar = audioContainer.querySelector("#progress");
+      progressBar.style.width = (audio.currentTime / audio.duration) * 100 + "%";
+      audioContainer.querySelector("#time #current").textContent = getTimeCodeFromNum(
+        audio.currentTime
+      );
+    }
   }, 500);
 
   //toggle between playing and pausing on button click
@@ -59,7 +64,6 @@ for (const [index, audioContainer] of Array.from(audioContainers).entries()) {
   );
 
   function playAudio() {
-    console.log('function playAudio')
     if (audio.paused) {
       // Stop currently playing audio if it exists
       if (currentlyPlayingIndex !== -1 && currentlyPlayingIndex !== index) {
