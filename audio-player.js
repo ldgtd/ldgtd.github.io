@@ -46,7 +46,7 @@ for (const [index, audioContainer] of Array.from(audioContainers).entries()) {
 
   // check audio percentage and update time accordingly
   setInterval(() => {
-    if (!audio.paused && !audio.ended) {
+    if (!audio.ended) {
       const progressBar = audioContainer.querySelector("#progress");
       progressBar.style.width = (audio.currentTime / audio.duration) * 100 + "%";
       audioContainer.querySelector("#time #current").textContent = getTimeCodeFromNum(
