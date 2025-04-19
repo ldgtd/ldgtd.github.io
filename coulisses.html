@@ -6,6 +6,19 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+      // history lock
+      window.addEventListener('load', function () {
+        history.pushState({ locked: true }, '', '');
+        history.pushState({ locked: true }, '', '');
+
+        window.addEventListener('popstate', function (e) {
+          if (e.state && e.state.locked) {
+            history.go(1);
+          }
+        });
+      });
+    </script>
     <script src="tailwind.js"></script>
   </head>
   <body class="bg-[#3f43ad] text-white p-3">
