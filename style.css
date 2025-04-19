@@ -1,9 +1,14 @@
 body {
+  overflow: hidden;
   position: relative;
   top: 50%;
   left: 50%;
   transform: scale(0.8) translate(-50%, -50%);
   transform-origin: top left;
+}
+
+.main-title {
+  font-size: 1.6em;
 }
 
 .play-button {
@@ -19,11 +24,26 @@ body {
   opacity: 0;
 }
 
+.progress-wrapper {
+  position: relative;
+}
+
 .progress {
   background: white;
   width: 0%;
   height: 100%;
   transition: 0.25s;
+}
+
+.progress-hitbox {
+  position: absolute;
+  top: -25px;
+  bottom: -12px;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  z-index: 10;
+  background: transparent;
 }
 
 .time {
