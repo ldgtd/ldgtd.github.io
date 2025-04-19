@@ -1,0 +1,7 @@
+{
+  "name": "Brazza application",
+  "short_name": "Brazza",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#3f43ad"
+}
