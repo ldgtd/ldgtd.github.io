@@ -1,3 +1,11 @@
+body {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: scale(0.8) translate(-50%, -50%);
+  transform-origin: top left;
+}
+
 .play-button {
   margin-top: -20%;
   transition: 0.3s;
